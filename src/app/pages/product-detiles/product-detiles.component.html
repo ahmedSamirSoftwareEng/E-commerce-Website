@@ -1,23 +1,75 @@
-<section >
-  <div class="container px-4 px-lg-5">
-      <div class="row gx-4 gx-lg-5 align-items-center">
-          <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" [src]="products[id].images[0]" alt="..." /></div>
-          <div class="col-md-6">
-              <div class="small mb-1">{{products[id].category}}</div>
-              <h1 class="display-5 fw-bolder">{{products[id].title}}</h1>
-              <div class="fs-5 mb-5">
-                  <span class="text-decoration-line-through">${{products[id].price+products[id].discountPercentage}}</span>
-                  <span>  ${{products[id].price}}</span>
-              </div>
-              <p class="lead">{{products[id].description}}</p>
-              <div class="d-flex">
-                  <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                  <button class="btn btn-outline-dark flex-shrink-0" type="button" [routerLink]="['/cart']">
-                      <i class="bi-cart-fill me-1"></i>
-                      Add to cart
-                  </button>
-              </div>
-          </div>
+<div class="container my-5">
+  <div class="row">
+    <!-- main image -->
+    <div class="col-md-5">
+      <div class="main-img">
+        <img class="img-fluid" [src]= "products[id].images[0]"
+          alt="ProductS">
+        <div class="row my-3 previews">
+          @for (image of products[id].images; track $index) {
+            <div class="col-3">
+              <img class="img-fluid" [src]= "image"
+                alt="ProductS">
+            </div>
+          }
+        </div>
       </div>
+    </div>
+    <!-- main description -->
+    <div class="col-md-7">
+      <div class="main-description px-2">
+        <div class="category text-bold fs-3">
+          {{products[id].category}}
+        </div>
+        <hr>
+        <div id="green" class="product-title text-bold my-3">
+          {{products[id].title}}
+        </div>
+
+
+        <div class="price-area my-4">
+          <p class="old-price mb-1 fs-5"><del>${{(products[id].discountPercentage+products[id].price).toFixed(2)}}</del>
+            <span class="old-price-discount text-danger fs-6">  -{{products[id].discountPercentage}}%</span></p>
+          <p id="green" class="new-price text-bold mb-1">${{products[id].price}}</p>
+
+        </div>
+        <div class="buttons d-flex my-5">
+          <div class="block">
+            <button  class="btn btn-outline-dark flex-shrink-0 " id="addTocart">Add to cart</button>
+          </div>
+
+          <div class="block quantity">
+            <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max="5"
+              placeholder="Enter email" name="cart_quantity">
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <div class="product-details my-4">
+        <p id="green" class="details-title text-color mb-1">Product Details</p>
+        <p class="description">{{products[id].description}} </p>
+      </div>
+
+
+
+      <div class="delivery my-4">
+        <p id="green" class="font-weight-bold mb-0"><span> <i class="fa-solid fa-truck me-2"></i> </span> <b>Delivery done in 3 days from
+            date of purchase</b> </p>
+        <p class="text-secondary">Order now to get this product delivery</p>
+      </div>
+      <div class="delivery-options my-4">
+        <p id="green" class="font-weight-bold mb-0"><span> <i class="fa-solid fa-filter me-2"></i> </span> <b>Delivery options</b> </p>
+        <p class="text-secondary">View delivery options here</p>
+      </div>
+
+
+    </div>
   </div>
-</section>
+</div>
+
+
+
