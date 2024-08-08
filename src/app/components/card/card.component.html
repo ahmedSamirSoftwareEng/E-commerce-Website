@@ -1,0 +1,31 @@
+<!-- genetate product -->
+<div class="col mb-5">
+  <div class="card">
+    <!-- product chip on stock -->
+    @if (product.stock == 0){
+    <div class="badge bg-danger text-white" id="stock-status">Out of Stock</div>
+    }
+    @else{<div class="badge bg-success text-white" id="stock-status">In Stock</div>}
+    <!-- Product image-->
+    <img class="card-img-top" [src]="product.images[0]" alt="{{ product.title }}" [routerLink]="['/details', product.id]" />
+    <!-- Product details-->
+    <div class="card-body ">
+      <div class="text-center">
+        <!-- Product name-->
+        <h5 id="title" class="fw-bolder">{{product.title}}</h5>
+        <!-- Product description-->
+        <p id="description">{{product.description.split('.')[0] }}</p>
+        <!-- rating -->
+        <div class="ratingdiv">
+          <p class="fw-bolder" id="price"> ${{product.price}}</p>
+          <i class="fa-solid fa-star"><span> {{product.rating}}</span></i>
+        </div>
+
+      </div>
+      <!-- Product actions-->
+      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto" routerLink="cart">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
