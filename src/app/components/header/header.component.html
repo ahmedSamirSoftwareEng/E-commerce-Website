@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" href="#!">EcommerceApp</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light position-sticky top-0 z-1">
+  <div class="container px-4 px-lg-5 ">
+    <a class="navbar-brand  " href="#!">Ecommerce</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
         class="navbar-toggler-icon"></span></button>
@@ -9,12 +10,17 @@
 
       </ul>
 
+      <!-- login -->
+      <button class="btn  m-2 " routerLink="login" routerLinkActive="active-link"><span><i
+            class="fa-solid fa-user"></i> Login</span></button>
+      <!-- register -->
+      <button class="btn m-2 " routerLink="register" routerLinkActive="active-link">
+        <span><i class="fa-solid fa-user-plus "></i> Register</span>
+      </button>
+      <!-- cart -->
+      <button class="btn m-2 "  routerLink="cart" routerLinkActive="active-link">
 
-      <button class="btn btn-outline-dark m-2" routerLink="login" routerLinkActive="active-link">Login</button>
-      <button class="btn btn-outline-dark m-2" routerLink="register" routerLinkActive="active-link">Register</button>
-      <button class="btn m-2" type="submit" routerLink="cart" routerLinkActive="active-link">
-        <i class="fa-solid fa-cart-shopping fa-xl"></i>
-        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+        <span><i class="fa-solid fa-shopping-cart fa-lg me-2"></i>0</span>
       </button>
 
     </div>

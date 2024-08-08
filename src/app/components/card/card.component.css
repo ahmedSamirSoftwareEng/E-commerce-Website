@@ -11,31 +11,7 @@ img:hover{
 h5{
   font-weight: bold;
   font-size: 20px;
-  color: rgb(49, 49, 49);
-}
-
-#price{
-  color: rgb(49, 49, 49);
-  font-weight: bold;
-  font-size: 15 px;
-}
-
-#stock-status{
-  top: 10px;
-  left: 10px;
-  position: absolute;
-}
-
-#description{
-  display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      line-height: 1.5em;
-}
-#title{
+  color: green;
   display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
@@ -43,13 +19,53 @@ h5{
       text-overflow: ellipsis;
 }
 
-.ratingdiv{
-  text-align: end;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
+#stock-status{
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
-i{
-  color: rgb(5, 131, 16);
-  font-size: 20px;
+
+#description{
+  display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1em;
 }
+
+
+
+
+.discount{
+  text-decoration: line-through;
+}
+
+
+#addTocart{
+  border: 1px solid green;
+  color: green;
+}
+
+#addTocart:hover{
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+#star{
+  color: green;
+}
+#rate{
+  background-color: green;
+  border-radius: 5px;
+  width: 40px;
+  text-align: center;
+  color:white   ;
+}
+

@@ -1,4 +1,13 @@
 .active-link{
-  background-color: black;
-  color: white;
+ background-color: green;
+ color: white;
+}
+
+.fa-store{
+  color: green;
+}
+button:not(.active-link) :hover
+{
+  color: green;
+  cursor: pointer;
 }

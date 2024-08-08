@@ -5,27 +5,53 @@
     @if (product.stock == 0){
     <div class="badge bg-danger text-white" id="stock-status">Out of Stock</div>
     }
-    @else{<div class="badge bg-success text-white" id="stock-status">In Stock</div>}
+    @else{<div class="badge" id="stock-status">In Stock</div>}
     <!-- Product image-->
-    <img class="card-img-top" [src]="product.images[0]" alt="{{ product.title }}" [routerLink]="['/details', product.id]" />
+    <img class="card-img-top" [src]="product.images[0]" alt="{{ product.title }}"
+      [routerLink]="['/details', product.id]" />
     <!-- Product details-->
     <div class="card-body ">
-      <div class="text-center">
-        <!-- Product name-->
-        <h5 id="title" class="fw-bolder">{{product.title}}</h5>
-        <!-- Product description-->
-        <p id="description">{{product.description.split('.')[0] }}</p>
-        <!-- rating -->
-        <div class="ratingdiv">
-          <p class="fw-bolder" id="price"> ${{product.price}}</p>
-          <i class="fa-solid fa-star"><span> {{product.rating}}</span></i>
-        </div>
 
+      <!-- Product name-->
+      <h5 class="fw-bolder">{{product.title}}</h5>
+      <!-- Product description-->
+      <p id="description" class="text-secondary">{{product.description.split('.')[0] }}</p>
+    </div>
+    <!-- Product rating -->
+    <div class="d-flex justify-content-end" >
+     <div class="span d-flex justify-content-end">
+      <div  id="star">
+        @for (star of [1,2,3,4,5]; track $index) {
+          @if (star <= (product.rating)) {
+            <i class="fa-solid fa-star"></i>
+          }
+          @else {
+            <i class="fa-regular fa-star"></i>
+          }
+        }
       </div>
-      <!-- Product actions-->
-      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-        <div class="text-center"><a class="btn btn-outline-dark mt-auto" routerLink="cart">Add to cart</a>
+      <div id="rate" class="me-3 ms-2 ">{{product.rating}}</div>
+    </div>
+     </div>
+
+    <!-- Product price & add to cart-->
+    <div class="d-flex justify-content-between align-items-center ms-3 me-3 mb-3">
+
+      <div class="d-flex flex-column">
+        <!-- price -->
+        <div class="price fs-4 fw-bold">
+          ${{product.price}}
+        </div>
+        <!-- discount -->
+        <div class="discount fs-6 text-secondary">
+          ${{(product.price+product.discountPercentage).toFixed(2)}}
         </div>
       </div>
+      <!-- add to cart -->
+      <button class="btn btn-outline-dark flex-shrink-0" id="addTocart" [routerLink]="['/cart']" >
+        <i class="bi-cart-fill me-1"></i>
+        Add to cart
+      </button>
     </div>
   </div>
+</div>
