@@ -1,4 +1,4 @@
-export interface ProductInterface {
+export interface RootInterface {
   id: number
   title: string
   description: string
@@ -8,17 +8,31 @@ export interface ProductInterface {
   rating: number
   stock: number
   tags: string[]
-  brand?: string
+  brand: string
   sku: string
   weight: number
+  dimensions: {
+    width: number
+    height: number
+    depth: number
+  }
   warrantyInformation: string
   shippingInformation: string
   availabilityStatus: string
-  comment: string
-  date: string
-  reviewerName: string
-  reviewerEmail: string
+  reviews: []
   returnPolicy: string
   minimumOrderQuantity: number
+  meta: {
+    createdAt: string
+    updatedAt: string
+    barcode: string
+    qrCode: string
+  }
   images: string[]
+  thumbnail: string
+
 }
+
+
+
+

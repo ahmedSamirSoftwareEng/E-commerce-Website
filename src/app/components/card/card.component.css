@@ -2,16 +2,20 @@
 img{
   height: 250px;
 }
-img:hover{
-  transform: scale(1.2);
-  transition: 0.5s;
+
+.card{
   cursor: pointer;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  transition: 0.5s;
 }
 
 h5{
   font-weight: bold;
   font-size: 20px;
-  color: green;
+  color: rgba(0, 128, 0, 0.733);
   display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
@@ -23,7 +27,7 @@ h5{
   top: 10px;
   left: 10px;
   position: absolute;
-  background-color: green;
+  background-color:  rgba(0, 128, 0, 0.733);
   color: white;
   padding: 5px;
   border-radius: 5px;
@@ -47,8 +51,8 @@ h5{
 
 
 #addTocart{
-  border: 1px solid green;
-  color: green;
+  border: 1px solid  rgba(0, 128, 0, 0.733);
+  color:  rgba(0, 128, 0, 0.733);
 }
 
 #addTocart:hover{
@@ -59,7 +63,7 @@ h5{
 }
 
 #star{
-  color: green;
+  color: rgba(0, 128, 0, 0.733);
 }
 #rate{
   background-color: green;

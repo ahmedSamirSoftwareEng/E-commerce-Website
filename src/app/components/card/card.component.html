@@ -1,6 +1,6 @@
 <!-- genetate product -->
 <div class="col mb-5">
-  <div class="card">
+  <div class="card" [routerLink]="['/details', product.id]" >
     <!-- product chip on stock -->
     @if (product.stock == 0){
     <div class="badge bg-danger text-white" id="stock-status">Out of Stock</div>
@@ -8,7 +8,7 @@
     @else{<div class="badge" id="stock-status">In Stock</div>}
     <!-- Product image-->
     <img class="card-img-top" [src]="product.images[0]" alt="{{ product.title }}"
-      [routerLink]="['/details', product.id]" />
+      />
     <!-- Product details-->
     <div class="card-body ">
 
@@ -22,15 +22,18 @@
      <div class="span d-flex justify-content-end">
       <div  id="star">
         @for (star of [1,2,3,4,5]; track $index) {
-          @if (star <= (product.rating)) {
-            <i class="fa-solid fa-star"></i>
-          }
-          @else {
-            <i class="fa-regular fa-star"></i>
-          }
+             @if (star <= (product.rating)) {
+              <i class="fa-solid fa-star"></i>
+             }
+             @else if (star + 0.5 == toInt(product.rating) + 0.5) {
+              <i class="fa-solid fa-star-half-stroke"></i>
+             }
+             @else {
+              <i class="fa-regular fa-star"></i>
+             }
         }
       </div>
-      <div id="rate" class="me-3 ms-2 ">{{product.rating}}</div>
+      <div id="rate" class="me-3 ms-2 fs-6">{{product.rating | number: '1.1-1' }}</div>
     </div>
      </div>
 

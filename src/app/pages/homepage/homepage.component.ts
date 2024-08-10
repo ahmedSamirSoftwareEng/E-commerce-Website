@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import  data from '../../../../products.json';
 import { CardComponent } from "../../components/card/card.component";
-import { ProductInterface } from '../../types/product-interface';
+import { ProductsRequestService } from '../../services/products-request.service';
+import { RootInterface } from '../../types/product-interface';
 
 
 @Component({
@@ -13,5 +13,17 @@ import { ProductInterface } from '../../types/product-interface';
 })
 export class HomepageComponent {
 
-  products: ProductInterface[] = data;
+  constructor(private products_request: ProductsRequestService) { }
+
+  products: RootInterface[] = [];
+
+  ngOnInit(): void {
+    this.products_request.getProducts().subscribe((res: any) => {
+      this.products = res.products;
+    });
+  }
+
+
+
+
 }

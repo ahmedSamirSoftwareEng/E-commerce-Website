@@ -3,10 +3,10 @@
     <!-- main image -->
     <div class="col-md-5">
       <div class="main-img">
-        <img class="img-fluid" [src]= "products[id].images[0]"
+        <img class="img-fluid" [src]= "product.images"
           alt="ProductS">
         <div class="row my-3 previews">
-          @for (image of products[id].images; track $index) {
+          @for (image of product.images; track $index) {
             <div class="col-3">
               <img class="img-fluid" [src]= "image"
                 alt="ProductS">
@@ -19,18 +19,18 @@
     <div class="col-md-7">
       <div class="main-description px-2">
         <div class="category text-bold fs-3">
-          {{products[id].category}}
+          {{product.category}}
         </div>
         <hr>
         <div id="green" class="product-title text-bold my-3">
-          {{products[id].title}}
+          {{product.title}}
         </div>
 
 
         <div class="price-area my-4">
-          <p class="old-price mb-1 fs-5"><del>${{(products[id].discountPercentage+products[id].price).toFixed(2)}}</del>
-            <span class="old-price-discount text-danger fs-6">  -{{products[id].discountPercentage}}%</span></p>
-          <p id="green" class="new-price text-bold mb-1">${{products[id].price}}</p>
+          <p class="old-price mb-1 fs-5"><del>${{(product.discountPercentage+product.price).toFixed(2)}}</del>
+            <span class="old-price-discount text-danger fs-6">  -{{product.discountPercentage}}%</span></p>
+          <p id="green" class="new-price text-bold mb-1">${{product.price}}</p>
 
         </div>
         <div class="buttons d-flex my-5">
@@ -51,7 +51,7 @@
 
       <div class="product-details my-4">
         <p id="green" class="details-title text-color mb-1">Product Details</p>
-        <p class="description">{{products[id].description}} </p>
+        <p class="description">{{product.description}} </p>
       </div>
 
 

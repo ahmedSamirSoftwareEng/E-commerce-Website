@@ -1,0 +1,17 @@
+section{
+  height: 100vh;
+  background-color: #afff8193;
+}
+
+#submit{
+    border: 1px solid  rgba(0, 128, 0, 0.733);
+    color:  rgba(0, 128, 0, 0.733);
+  }
+
+  #submit:hover{
+    background: radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%);
+
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
