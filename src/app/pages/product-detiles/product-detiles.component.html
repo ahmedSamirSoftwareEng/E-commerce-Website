@@ -3,7 +3,7 @@
     <!-- main image -->
     <div class="col-md-5">
       <div class="main-img">
-        <img class="img-fluid" [src]= "product.images"
+        <img class="img-fluid" [src]= "product.thumbnail"
           alt="ProductS">
         <div class="row my-3 previews">
           @for (image of product.images; track $index) {
@@ -35,7 +35,7 @@
         </div>
         <div class="buttons d-flex my-5">
           <div class="block">
-            <button  class="btn btn-outline-dark flex-shrink-0 " id="addTocart">Add to cart</button>
+            <button  class="btn btn-outline-dark flex-shrink-0 " id="addTocart" (click)="addToCart(product.id)">Add to cart</button>
           </div>
 
           <div class="block quantity">
@@ -70,6 +70,5 @@
     </div>
   </div>
 </div>
-
 
 

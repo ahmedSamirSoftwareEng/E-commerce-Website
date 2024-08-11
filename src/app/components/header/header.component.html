@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light position-sticky top-0 z-1">
   <div class="container px-4 px-lg-5 ">
-    <a class="navbar-brand  " href="#!">Ecommerce</a>
+    <a class="navbar-brand  " [routerLink]="['/']">Ecommerce</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -20,7 +20,7 @@
       <!-- cart -->
       <button class="btn m-2 "  routerLink="cart" routerLinkActive="active-link">
 
-        <span><i class="fa-solid fa-shopping-cart fa-lg me-2"></i>0</span>
+        <span><i class="fa-solid fa-shopping-cart fa-lg me-2"></i>{{ cartCount }}</span>
       </button>
 
     </div>

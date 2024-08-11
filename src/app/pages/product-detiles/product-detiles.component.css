@@ -19,7 +19,11 @@ text-color {
 }
 
 
-
+img {
+  max-height: 400px;
+  max-width: 100%;
+  object-fit: contain;
+}
 
 /* Main image - left */
 .main-img img {

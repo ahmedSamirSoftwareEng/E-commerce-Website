@@ -28,7 +28,7 @@ export interface RootInterface {
     barcode: string
     qrCode: string
   }
-  images: string[]
+  images: []
   thumbnail: string
 
 }
