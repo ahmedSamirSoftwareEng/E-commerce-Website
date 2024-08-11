@@ -47,7 +47,7 @@ export class ProductDetilesComponent {
 
     this.cart_services.set_cartProductsIds(id);
 
-  
+
     this.cart_services.set_counter(++this.counter);
 
   }

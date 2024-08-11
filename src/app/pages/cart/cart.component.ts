@@ -42,6 +42,14 @@ export class CartComponent {
   }
 
 
+  getTotalPrice() {
+    let total = 0;
+    for (let i = 0; i < this.products.length; i++) {
+      total += this.products[i].quantity * this.products[i].res.price;
+    }
+    return total;
+  }
+
 }
 
 

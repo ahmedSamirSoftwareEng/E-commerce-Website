@@ -37,8 +37,6 @@ export class CartServicesService {
 
 
   set_cartProductsIds(productId: any) {
-
-
     this.products_request.getProductsById(productId).subscribe((res: any) => {
 
       // if res already in cartproducts
@@ -66,8 +64,6 @@ export class CartServicesService {
 
   }
 
-
-
   get_cartProducts() {
     return this.cartProducts;
   }
@@ -78,6 +74,9 @@ export class CartServicesService {
       if (this.cartProducts[i].id === id) {
        if (this.cartProducts[i].quantity < this.cartProducts[i].res.stock) {
          this.cartProducts[i].quantity++;
+         
+       }else{
+         alert("out of stock");
        }
         break;
       }
@@ -95,8 +94,6 @@ export class CartServicesService {
       }
     }
   }
-
-
 
 
 
