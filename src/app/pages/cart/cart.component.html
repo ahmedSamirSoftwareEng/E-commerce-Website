@@ -10,9 +10,9 @@
              @for (product of products; track $index) {
               <div class="row component main align-items-center text-center">
                 <div class="col-2"><img class="img-fluid" [src]="product.res.images[0]"></div>
-                <div class="col">
+                <div class="col title_div">
                     <div class="row text-muted cat">{{ product.res.category }}</div>
-                    <div class="row tit">{{ product.res.title }}</div>
+                    <div class="tit col">{{ product.res.title }}</div>
                 </div>
                 <!-- quantity & increment & decrement -->
                 <div class="col">

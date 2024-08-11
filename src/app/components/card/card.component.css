@@ -1,74 +1,80 @@
-
-img{
+img {
   height: 250px;
 }
 
-.card{
+.card {
   cursor: pointer;
 }
 
-.card:hover{
+.card:hover {
   transform: scale(1.05);
   transition: 0.5s;
 }
 
-h5{
+h5 {
   font-weight: bold;
   font-size: 20px;
   color: rgba(0, 128, 0, 0.733);
   display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-#stock-status{
+#stock-status {
   top: 10px;
   left: 10px;
   position: absolute;
-  background-color:  rgba(0, 128, 0, 0.733);
+  background-color: rgba(0, 128, 0, 0.733);
   color: white;
   padding: 5px;
   border-radius: 5px;
 }
 
-#description{
+#description {
   display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1em;
 }
 
 
 
 
-.discount{
+.discount {
   text-decoration: line-through;
 }
 
 
-#addTocart{
-  border: 1px solid  rgba(0, 128, 0, 0.733);
-  color:  rgba(0, 128, 0, 0.733);
+#addTocart {
+  border: 1px solid rgba(0, 128, 0, 0.733);
+  color: rgba(0, 128, 0, 0.733);
 }
 
-#addTocart:hover{
+#addTocart:hover {
   background-color: green;
   color: white;
   cursor: pointer;
   border: none;
 }
 
-#star{
+#star {
   color: rgba(0, 128, 0, 0.733);
 }
-#rate{
+
+#rate {
   background-color: green;
   border-radius: 5px;
   width: 40px;
   text-align: center;
-  color:white   ;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .btn_class {
+    margin: 10px;
+  }
 }

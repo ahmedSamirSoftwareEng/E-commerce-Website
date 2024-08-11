@@ -138,9 +138,20 @@ input:focus::-webkit-input-placeholder
   background-position-y: center;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .cat{
       display: none;
+  }
+  .title_div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 15%;
+  }
+  .tit{
+      font-size: 10px;
+      width: 100%;
   }
   .dec_quantiy_dec{
       display:flex;
