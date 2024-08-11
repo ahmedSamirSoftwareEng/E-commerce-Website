@@ -9,16 +9,17 @@ export class CartServicesService {
 
   private counter = new BehaviorSubject<number>(0);
   productId: any;
-  cartProductsIds: any[] = [];
+
+
   cartProducts: any[] = [];
 
 
 
-  constructor(private products_request: ProductsRequestService) {}
+  constructor(private products_request: ProductsRequestService) { }
 
 
 
- set_productId(id: any) {
+  set_productId(id: any) {
     this.productId = id;
   }
 
@@ -26,31 +27,78 @@ export class CartServicesService {
     return this.productId;
   }
 
-  get_counter()  {
+  get_counter() {
     return this.counter.asObservable();
   }
 
   set_counter(newCounter: number) {
     this.counter.next(newCounter);
-   }
+  }
 
 
-set_cartProductsIds(productId: any) {
+  set_cartProductsIds(productId: any) {
 
-  this.cartProductsIds.push(productId);
 
- for (let index = 0; index < this.cartProductsIds.length; index++) {
-   this.products_request.getProductsById(this.cartProductsIds[index]).subscribe((res: any) => {
-     if (res) {
-       this.cartProducts.push(res);
-     }
-   })
- }
+    this.products_request.getProductsById(productId).subscribe((res: any) => {
 
-}
-get_cartProductsIds() {
-  return this.cartProducts;
-}
+      // if res already in cartproducts
+
+      let found = false;
+      for (let i = 0; i < this.cartProducts.length; i++) {
+        if (this.cartProducts[i].id === res.id) {
+          found = true;
+          this.cartProducts[i].quantity++;
+          break;
+        }
+      }
+      if (!found) {
+        this.cartProducts.push({
+          res: res,
+          id: res.id,
+          quantity: 1,
+        }
+
+        );
+      }
+
+
+    });
+
+  }
+
+
+
+  get_cartProducts() {
+    return this.cartProducts;
+  }
+
+  increment (id: number) {
+
+    for (let i = 0; i < this.cartProducts.length; i++) {
+      if (this.cartProducts[i].id === id) {
+       if (this.cartProducts[i].quantity < this.cartProducts[i].res.stock) {
+         this.cartProducts[i].quantity++;
+       }
+        break;
+      }
+    }
+  }
+
+
+  decrement (id: number) {
+    for (let i = 0; i < this.cartProducts.length; i++) {
+      if (this.cartProducts[i].id === id) {
+        if (this.cartProducts[i].quantity > 1) {
+          this.cartProducts[i].quantity--;
+        }
+        break;
+      }
+    }
+  }
+
+
+
+
 
 
 }

@@ -51,7 +51,7 @@
         </div>
       </div>
       <!-- add to cart -->
-      <button class="btn btn-outline-dark flex-shrink-0" id="addTocart" [routerLink]="['/cart']" >
+      <button class="btn btn-outline-dark flex-shrink-0" id="addTocart" (click)="addToCart($event,product.id)" >
         <i class="bi-cart-fill me-1"></i>
         Add to cart
       </button>

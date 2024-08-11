@@ -13,25 +13,35 @@ import { RootInterface } from '../../types/product-interface';
 })
 export class CartComponent {
 
-  products: RootInterface[] = [];
+  products: any = [];
 
 
 
-  constructor(private cart_services: CartServicesService,
-    private products_request: ProductsRequestService) {
+  constructor(private cart_services: CartServicesService,) {
 
   }
 
   ngOnInit(): void {
 
-    this.products=this.cart_services.get_cartProductsIds()
+    this.products=this.cart_services.get_cartProducts()
+    console.log(this.products);
 
-
-
-  }
   }
 
 
+  increment(id: number) {
+  this.cart_services.increment(id);
+  this.products=this.cart_services.get_cartProducts();
 
+  }
+
+
+  decrement(id: number) {
+    this.cart_services.decrement(id);
+    this.products=this.cart_services.get_cartProducts();
+  }
+
+
+}
 
 

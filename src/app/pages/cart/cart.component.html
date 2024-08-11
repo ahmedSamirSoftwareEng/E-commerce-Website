@@ -28,23 +28,22 @@
                 <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
-                      <img src="{{ item.thumbnail }}" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <img src="{{ item.res.thumbnail }}" alt="" width="70" class="img-fluid rounded shadow-sm">
                       <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0">{{ item.title }}</h5><span
-                          class="text-muted font-weight-normal font-italic d-block">Category: {{ item.category }}</span>
+                        <h5 class="mb-0">{{ item.res.title }}</h5><span
+                          class="text-muted font-weight-normal font-italic d-block">Category: {{ item.res.category }}</span>
                       </div>
                     </div>
                   </th>
-                  <td class="border-0 align-middle"><strong>${{ item.price }}</strong></td>
+                  <td class="border-0 align-middle"><strong>${{ item.res.price* item.quantity }}</strong></td>
                   <td class="border-0 align-middle">
                     <div class="input-group quantity mx-auto" style="width: 100px;">
                       <div class="input-group-btn">
                       </div>
-                        <i class="fa fa-minus m-2"></i>
-                      <input type="text" class="form-control form-control-sm bg-light text-center" value="1">
+                        <i class="fa fa-minus m-2" (click)="decrement(item.id)"></i>
+                      <input type="text" class="form-control form-control-sm bg-light text-center" [value]="item.quantity">
                       <div class="input-group-btn">
-
-                          <i class="fa fa-plus m-2"></i>
+                          <i class="fa fa-plus m-2" (click)="increment(item.id)"></i>
 
                       </div>
                     </div>
