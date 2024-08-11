@@ -1,115 +1,120 @@
-<section class="vh-100" >
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-9">
-        <div class="card" style="border-radius: 15px;">
-          <div class="card-body text-center">
-            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+<div  style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black" id="login">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
 
-              <!-- name -->
-              <div class="mb-3 row justify-content-center">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control w-50 " id="name" name="name" formControlName="name">
+                  <div class="text-center">
+                    <h4 class="mt-1 mb-5 pb-1">Register</h4>
+                  </div>
+
+                  <form class="m-2">
+                    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+                      <!-- name -->
+                      <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control w-100" id="name" name="name" formControlName="name">
+                      </div>
+                      <!-- name validation -->
+                      @if (this.registerForm.get('name')?.touched && this.registerForm.get('name')?.invalid) {
+                      @if (this.registerForm.get('name')?.hasError('required')) {
+                      <p class="text-danger">Name is required</p>
+                      }
+                      }
+                      <!-- email -->
+                      <div class="mb-3 row justify-content-between" >
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control w-100" id="email" name="email" formControlName="email">
+                      </div>
+                      <!-- email validation -->
+                      @if (this.registerForm.get('email')?.touched && this.registerForm.get('email')?.invalid) {
+                      @if (this.registerForm.get('email')?.hasError('required')) {
+                      <p class="text-danger">Email is required</p>
+                      }
+                      @else if (this.registerForm.get('email')?.hasError('email')) {
+                      <p class="text-danger">Email is invalid</p>
+                      }
+                      }
+                      <!-- username -->
+                      <div class="mb-3 row justify-content-between">
+                        <label for="username" class="form-label ">Username</label>
+                        <input type="text" class="form-control w-100" id="username" name="username" formControlName="username">
+                      </div>
+                      <!-- username validation -->
+                      @if (this.registerForm.get('username')?.touched && this.registerForm.get('username')?.invalid) {
+                      @if (this.registerForm.get('username')?.hasError('required')) {
+                      <p class="text-danger">Username is required</p>
+                      }
+                      @else if (this.registerForm.get('username')?.hasError('pattern')) {
+                      <p class="text-danger">Username is invalid</p>
+                      }
+                      }
+
+                      <!-- password -->
+                      <div class="mb-3 row justify-content-between">
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control w-100" id="password" name="password" formControlName="password">
+                      </div>
+                      <!-- password validation -->
+                      @if (this.registerForm.get('password')?.touched && this.registerForm.get('password')?.invalid) {
+                      @if (this.registerForm.get('password')?.hasError('required')) {
+                      <p class="text-danger">Password is required</p>
+                      }
+                      @else if (this.registerForm.get('password')?.hasError('minlength')) {
+                      <p class="text-danger">Password must be at least 8 characters</p>
+                      }
+                      @else if (this.registerForm.get('password')?.hasError('pattern')) {
+                      <p class="text-danger">Password must start with one and at least one uppercase letter, one lowercase
+                        letter, one
+                        number, and one special character</p>
+                      }
+                      }
+                      <!-- confirm password -->
+                      <div class="mb-3 row justify-content-between">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input class="form-control w-100" id="confirmPassword" name="confirmPassword"
+                          formControlName="confirmPassword">
+                      </div>
+                      <!-- confirm password validation -->
+                      @if (this.registerForm.get('confirmPassword')?.touched ) {
+                      @if (this.registerForm.get('confirmPassword')?.hasError('required')) {
+                      <p class="text-danger">Confirm Password is required</p>
+                      }
+                      @else if (registerForm.errors?.['passwordMismatchError']) {
+                      <p class="text-danger">Password does'nt match.</p>
+                      }
+                      }
+
+
+
+
+                      <!-- submit -->
+                      <button type="submit" id="submit" class="w-100 btn btn-outline-dark flex-shrink-0"
+                        [disabled]="registerForm.invalid">Submit</button>
+
+                    </form>
+                  </form>
+
+                </div>
               </div>
-              <!-- name validation -->
-              @if (this.registerForm.get('name')?.touched && this.registerForm.get('name')?.invalid) {
-              @if (this.registerForm.get('name')?.hasError('required')) {
-              <p class="text-danger">Name is required</p>
-              }
-              }
-              <!-- email -->
-              <div class="mb-3 row justify-content-center" >
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control w-50" id="email" name="email" formControlName="email">
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2 justify-content-center">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4 fw-bold text-center fs-2">Join us</h4>
+                  <hr>
+                  <p class="small mb-0">We’re trying to build a better future. come Join us</p>
+
+                </div>
+
               </div>
-              <!-- email validation -->
-              @if (this.registerForm.get('email')?.touched && this.registerForm.get('email')?.invalid) {
-              @if (this.registerForm.get('email')?.hasError('required')) {
-              <p class="text-danger">Email is required</p>
-              }
-              @else if (this.registerForm.get('email')?.hasError('email')) {
-              <p class="text-danger">Email is invalid</p>
-              }
-              }
-              <!-- username -->
-              <div class="mb-3 row justify-content-center">
-                <label for="username" class="form-label ">Username</label>
-                <input type="text" class="form-control w-50" id="username" name="username" formControlName="username">
-              </div>
-              <!-- username validation -->
-              @if (this.registerForm.get('username')?.touched && this.registerForm.get('username')?.invalid) {
-              @if (this.registerForm.get('username')?.hasError('required')) {
-              <p class="text-danger">Username is required</p>
-              }
-              @else if (this.registerForm.get('username')?.hasError('pattern')) {
-              <p class="text-danger">Username is invalid</p>
-              }
-              }
 
-              <!-- password -->
-              <div class="mb-3 row justify-content-center">
-                <label for="password" class="form-label">Password</label>
-                <input class="form-control w-50" id="password" name="password" formControlName="password">
-              </div>
-              <!-- password validation -->
-              @if (this.registerForm.get('password')?.touched && this.registerForm.get('password')?.invalid) {
-              @if (this.registerForm.get('password')?.hasError('required')) {
-              <p class="text-danger">Password is required</p>
-              }
-              @else if (this.registerForm.get('password')?.hasError('minlength')) {
-              <p class="text-danger">Password must be at least 8 characters</p>
-              }
-              @else if (this.registerForm.get('password')?.hasError('pattern')) {
-              <p class="text-danger">Password must start with one and at least one uppercase letter, one lowercase
-                letter, one
-                number, and one special character</p>
-              }
-              }
-              <!-- confirm password -->
-              <div class="mb-3 row justify-content-center">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input class="form-control w-50" id="confirmPassword" name="confirmPassword"
-                  formControlName="confirmPassword">
-              </div>
-              <!-- confirm password validation -->
-              @if (this.registerForm.get('confirmPassword')?.touched ) {
-              @if (this.registerForm.get('confirmPassword')?.hasError('required')) {
-              <p class="text-danger">Confirm Password is required</p>
-              }
-              @else if (registerForm.errors?.['passwordMismatchError']) {
-              <p class="text-danger">Password does'nt match.</p>
-              }
-              }
+            </div>
 
-
-
-
-              <!-- submit -->
-              <button type="submit" id="submit" class="w-25 btn btn-outline-dark flex-shrink-0"
-                [disabled]="registerForm.invalid">Submit</button>
-
-
-
-            </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-
-
-<div  style="background-color: #eee;">
-  <section class="h-100 gradient-form">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-
-        </div>
-      </div>
-    </div>
-  </section>
 </div>
-  <!-- End your project here-->

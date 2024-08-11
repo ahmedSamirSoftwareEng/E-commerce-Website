@@ -74,7 +74,7 @@ export class CartServicesService {
       if (this.cartProducts[i].id === id) {
        if (this.cartProducts[i].quantity < this.cartProducts[i].res.stock) {
          this.cartProducts[i].quantity++;
-         
+         this.counter.next(this.counter.value + 1);
        }else{
          alert("out of stock");
        }
@@ -89,6 +89,10 @@ export class CartServicesService {
       if (this.cartProducts[i].id === id) {
         if (this.cartProducts[i].quantity > 1) {
           this.cartProducts[i].quantity--;
+          this.counter.next(this.counter.value - 1);
+        }else{
+          this.cartProducts.splice(i, 1);
+          this.counter.next(this.counter.value - 1);
         }
         break;
       }

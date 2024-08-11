@@ -6,34 +6,36 @@
                   <div class="col"><h4><b>Shopping Cart</b></h4></div>
               </div>
           </div>
-          <div class="row border-top border-bottom">
+          <div class="row border-top">
              @for (product of products; track $index) {
-              <div class="row main align-items-center text-center">
+              <div class="row component main align-items-center text-center">
                 <div class="col-2"><img class="img-fluid" [src]="product.res.images[0]"></div>
                 <div class="col">
-                    <div class="row text-muted">{{ product.res.category }}</div>
-                    <div class="row">{{ product.res.title }}</div>
+                    <div class="row text-muted cat">{{ product.res.category }}</div>
+                    <div class="row tit">{{ product.res.title }}</div>
                 </div>
                 <!-- quantity & increment & decrement -->
                 <div class="col">
                    <div class="dec_quantiy_dec">
                     <button  class=" btn btn-danger m-2" (click)="decrement(product.id)"><i class="fa fa-minus"></i></button>
-                    <span>{{ product.quantity }}</span>
+                    <span id="quantity">{{ product.quantity }}</span>
                     <button class=" btn btn-success m-2" (click)="increment(product.id)"><i class="fa fa-plus"></i></button>
                    </div>
                 </div>
                 <div class="col">${{ (product.res.price *product.quantity).toFixed(2) }}</div>
             </div>
-             }
+            <hr>
+          }
+
           </div>
       </div>
       <!-- summary -->
-      <div >
-          <div><h5><b>Summary</b></h5></div>
+      <div>
+          <h4>Summary</h4>
           <hr>
           <div class="col text-center">
-              <div class="col text-right">TotalPrice : ${{getTotalPrice()}}</div>
-          <button class="btn m-2 w-50 ">CHECKOUT</button>
+              <div class="col text-right">TotalPrice : ${{getTotalPrice().toFixed(2)}}</div>
+          <button class="btn_checkout">CHECKOUT</button>
 
           </div>
 

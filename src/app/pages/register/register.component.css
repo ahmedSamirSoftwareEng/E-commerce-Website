@@ -1,8 +1,3 @@
-section{
-  height: 100vh;
-  background-color: #afff8193;
-}
-
 #submit{
     border: 1px solid  rgba(0, 128, 0, 0.733);
     color:  rgba(0, 128, 0, 0.733);
@@ -14,4 +9,43 @@ section{
     color: white;
     cursor: pointer;
     border: none;
+  }
+  .gradient-custom-2 {
+
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%);
+  }
+  #register{
+      border: 1px solid  rgba(0, 128, 0, 0.733);
+      color:  rgba(0, 128, 0, 0.733);
+    }
+
+    #register:hover{
+      background: radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%);
+
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    #sub{
+      color: white;
+      background: radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%);        }
+
+      #login{
+        border: none;
+      }
+
+      
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
   }
